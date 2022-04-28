@@ -437,6 +437,12 @@ def addCounty(tree, county):
 
 
 def convertTreeToDict(location_tree):
+    '''Converts a tree formatted as nested lists into a tree formatted as a dictionary so that it can be saved as a JSON.
+        Parameters:
+            location_tree (list): nested lists with the same country, state, and county information.
+        Returns:
+            location_dictionary (dict): nested dictionaries with country, state, and county information.
+    '''
     location_dictionary = {'United States': {}}
     for state_list in location_tree[1:]:
         location_dictionary['United States'][state_list[0]] = {}
@@ -448,6 +454,12 @@ def convertTreeToDict(location_tree):
 
 
 def convertDictToTree(location_dict):
+    '''Converts a tree formatted as a dictionary into a tree formatted as nested lists so that it can be used in the program.
+        Parameters:
+            location_dict (dict): nested dictionaries with country, state, and county information.
+        Returns:
+            location_list (list): nested lists with the same country, state, and county information.
+    '''
     location_list = ['United States']
     for state_key in location_dict['United States'].keys():
         state_list = [state_key]
